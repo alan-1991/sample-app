@@ -1,0 +1,278 @@
+html,body{
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font:normal 12px 微软雅黑;
+	background-image:url(../img/welcome_bg.gif);
+	background-repeat:repeat-x;
+	width:100%;
+	height:100%;
+	overflow-y:auto;
+	padding: 0;
+	margin: 0;
+}
+
+div#modify.background{
+	background-image:url(../img/welcome_bg.gif);
+	background-repeat:repeat-x;
+}
+
+input,button,select,textarea,.inputItem{
+	border:1px solid #999999;
+	font-size:9pt;
+	font-family:"微软雅黑";
+}
+
+.inputItem:hover{border-color:#1E90FF}
+
+div.title {
+	color:black;
+	font-weight:bold;
+	font-size:15pt;
+	text-align:center;
+
+	width:90%;
+	border:0px;
+	margin:0 auto;
+}
+
+.title{
+	color:black;
+	font-weight:bold;
+	font-size:15pt;
+	text-align:center;
+}
+
+input.dialog{
+	background:url(../img/find.png) right no-repeat;
+	background-color:#ffffff;
+	cursor:pointer;
+}
+
+input.date{
+	background:url(../img/calendar.gif) no-repeat right;
+	background-color:#ffffff;
+}
+
+div.date{
+	display:inline-block;
+	width:18px;
+	height:21px;
+	overflow:hidden;
+	background:url(../img/calendar.gif) no-repeat right;
+	background-color:#ffffff;
+}
+
+A:visited	{FONT-SIZE: 9pt; COLOR: #29537c; TEXT-DECORATION: none}
+A:link		{FONT-SIZE: 9pt; COLOR: #29537c; TEXT-DECORATION: none}
+A:hover		{FONT-SIZE: 9pt; COLOR: #6699cc; TEXT-DECORATION: underline}
+A:active	{FONT-SIZE: 9pt; COLOR: #336699; TEXT-DECORATION: none}
+
+.button,button,input[type="button"]{
+	background-color:#f4f4f4;
+}
+
+.edit{
+	background:url("../img/unedit.png") no-repeat left;
+	text-indent:16px;
+	background-color:#f4f4f4;
+}
+
+.edit:hover{background:url("../img/edit.png") no-repeat left}
+
+.del{
+	background:url("../img/undelete.png") no-repeat left;
+	text-indent:16px;
+	background-color:#f4f4f4;
+}
+.del:hover{background:url("../img/delete.png") no-repeat left}
+
+.add{
+	background:url("../img/unadd.png") no-repeat left;
+	text-indent:16px;
+	background-color:#f4f4f4;
+}
+.add:hover{background:url("../img/add.png") no-repeat left}
+
+.searchbutton{
+	background:url("../img/unfind.png") no-repeat left;
+	text-indent:16px;
+	background-color:#f4f4f4;
+}
+.searchbutton:hover{background:url("../img/find.png") no-repeat left}
+
+.save{
+	background:url("../img/unsave.png") no-repeat left;
+	text-indent:16px;
+	background-color:#f4f4f4;
+}
+.save:hover{background:url("../img/save.png") no-repeat left}
+
+.cancle{
+	background:url("../img/uncancel.png") no-repeat left;
+	text-indent:16px;
+	background-color:#f4f4f4;
+}
+.cancle:hover{background:url("../img/cancel.png") no-repeat left}
+
+.test{
+	background:url("../img/untest.png") no-repeat left;
+	text-indent:16px;
+}
+.test:hover{background:url("../img/test.png") no-repeat left}
+
+.left{
+	background:url("../img/unleft.png") no-repeat left;
+	text-indent:16px;
+}
+.left:hover{background:url("../img/left.png") no-repeat left}
+
+.right{
+	background:url("../img/unright.png") no-repeat left;
+	text-indent:16px;
+}
+.right:hover{background:url("../img/right.png") no-repeat left}
+
+table.search{
+	width:100%;
+	border:0px;
+	font-size:9pt;
+	font-family:"微软雅黑";
+	margin-bottom:20px;
+}
+
+table.search tbody tr{
+	height:20px;
+}
+
+table.search caption{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font:BOLD 18px 微软雅黑;
+	color:#d3202e;
+}
+
+table.search caption.second{
+	font-size: 14px;
+	color:#d3202e;
+}
+
+table.search tbody tr .condition,table.search tbody tr th{
+	/*background-color:#E0FFFF;*/
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font:BOLD 12px 微软雅黑;
+	width:200px;
+	text-align:right;
+}
+
+table.search tbody tr .input,table.search tbody tr td{
+	/*background-color:#ffffff;*/
+	text-align:left;
+}
+table.search select{
+	width:135px;
+}
+
+table.search tbody tr td.submit{
+	text-align:right;
+	padding-right:100px;
+}
+
+div.message{
+	width:100%;
+	margin:0 auto;
+	text-align:left;
+	color:red;
+	font-size:10pt;
+	font-weight:bold;
+}
+
+div.listlayout{
+	border:1px solid black;
+	padding:0;
+	margin:0;
+	width:100%;
+}
+
+table.list{
+	width:100%;
+	font-size:9pt;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-family:"微软雅黑";
+}
+
+table.list caption{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font:BOLD 14px 微软雅黑;
+	color:#d3202e;
+}
+
+table.list thead tr th{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000;
+	margin:0px;
+	background: #EBECEE url(../img/bghead.gif) repeat-x;
+	top:0px;
+	left:0px;
+	width:80px;
+	height:23px;
+	text-align:center;
+	line-height:23px;
+	word-break:keep-all;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+	overflow: hidden;
+	text-align:center;
+}
+
+table.list tbody tr{
+	/*background-color:expression((this.rowIndex%2==0)?"blue":"white");*/
+	/*background-color:expression((this.rowIndex%2==0)?#DBEAF5:#ffffff);*/
+	/*background-color:#F0F8FF;*/
+	
+	height:23px;
+	overflow:hidden;
+	padding:0px 5px;
+}
+
+table.list tbody tr.odd{
+	background-color:#fff;
+}
+
+table.list tbody tr.even{
+	background-color:#F1F1e1;
+}
+
+table.list tbody tr:hover{background-color:#DBEAF5}
+
+table.list tbody tr td{
+	height:23px;
+	line-height:23px;
+	overflow:hidden;
+	border-top:0px solid #fff;
+	border-bottom:1px solid #fff;
+	border-left:1px solid #fff;
+	border-right:1px solid #bbb;
+	cursor:default;
+	overflow:hidden;
+	text-overflow:hidden;
+	text-align:center;
+	padding:0px 6px;
+}
+
+div.layout{
+	width:80%;
+	margin:0 auto;
+	padding-top:10px;
+}
+
+.notNull{
+	color:red;
+	font-weight:bold;
+}
+

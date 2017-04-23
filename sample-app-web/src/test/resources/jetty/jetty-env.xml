@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure id="wac" class="org.mortbay.jetty.webapp.WebAppContext">
+
+	<New id="datasource" class="org.apache.commons.dbcp.BasicDataSource">
+     	<Set name="driverClassName">org.gjt.mm.mysql.Driver</Set>
+        <!-- 123.56.164.217  ncffund -->
+     	<Set name="url">jdbc:mysql://alan.vm:3306/TEST_DB?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true</Set>
+        
+ 	<!-- <Set name="url">jdbc:oracle:thin:@123.56.164.217:1521:ncffund</Set>  -->
+    	<Set name="username">root</Set>
+        <Set name="password">123</Set>
+        
+        <Set name="maxActive">2</Set>
+        <Set name="maxIdle">2</Set>
+    </New>
+    
+	<New id="datasource_Datasource" class="org.mortbay.jetty.plus.naming.EnvEntry">
+		<Arg>jdbc/sample</Arg>
+		<Arg>
+			<Ref id="datasource"/>
+		</Arg>
+	</New>
+	
+	<New id="datasourceB" class="org.apache.commons.dbcp.BasicDataSource">
+     	<Set name="driverClassName">org.gjt.mm.mysql.Driver</Set>
+        <!-- 123.56.164.217  ncffund -->
+     	<Set name="url">jdbc:mysql://alan.vm:3306/TEST_DB?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true</Set>
+        
+ 	<!-- <Set name="url">jdbc:oracle:thin:@123.56.164.217:1521:ncffund</Set>  -->
+    	<Set name="username">root</Set>
+        <Set name="password">123</Set>
+        <Set name="maxActive">2</Set>
+        <Set name="maxIdle">2</Set>
+    </New>
+    
+	<New id="datasource_Datasource" class="org.mortbay.jetty.plus.naming.EnvEntry">
+		<Arg>jdbc/sampleB</Arg>
+		<Arg>
+			<Ref id="datasourceB"/>
+		</Arg>
+	</New>
+</Configure>

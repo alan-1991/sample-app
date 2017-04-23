@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- <classPathEntry location="ojdbc14.jar" /> -->
+
+    <context id="OracleTables" targetRuntime="Ibatis2Java5">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <plugin type="com.istock.generate.plugin.TopSerializablePlugin"></plugin>
+        <plugin type="com.istock.generate.plugin.SqlMapUnMergePlugin"></plugin>
+        <!-- DAO的生成,带有分页标识 -->
+        <plugin type="com.istock.generate.plugin.PaginationAnnotaionPlugin">
+        	<property name="extends" value="com.istock.base.ibatis.IbatisDaoAnnotation4Template"/>
+        	<property name="pageClass" value="com.istock.base.ibatis.model.Page"/>
+        	<property name="sqlMapTemplate" value="sqlMapClientTemplate"/>
+        </plugin>
+
+        <commentGenerator type="com.istock.generate.plugin.DBCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://alan.vm:3306/TEST_DB?useUnicode=true&amp;characterEncoding=UTF-8"
+            userId="root" password="123">
+            <property name="remarksReporting" value="true" />
+        </jdbcConnection>
+		
+		<!-- POJO类生成配置 -->
+        <javaModelGenerator targetPackage="com.alan.sample.model" targetProject="../sample-app-dal/src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+		
+		<!-- SqlMap文件生成配置 -->
+        <sqlMapGenerator targetPackage="ibatis/sample" targetProject="../sample-app-dal/src/main/resources">
+        </sqlMapGenerator>
+		
+		<!-- Dao生成配置 -->
+        <javaClientGenerator type="SPRING" targetPackage="com.alan.sample.dao" targetProject="../sample-app-dal/src/main/java">
+        </javaClientGenerator>
+
+        <!-- <table schema="TEST_DB" tableName="TB_GRADE_INFO" domainObjectName="GradeInfo">
+	    	<generatedKey column="ID" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
+	    </table>
+	    <table schema="TEST_DB" tableName="TB_TEST_CHIND" domainObjectName="TestChild">
+	    	<generatedKey column="ID" sqlStatement="MySql" identity="true"/>
+	    </table>
+	    
+	    <table schema="TEST_DB" tableName="TB_MENU_INFO" domainObjectName="MenuInfo">
+	    	<generatedKey column="ID" sqlStatement="MySql" identity="true"/>
+	    </table> -->
+	    <table schema="TEST_DB" tableName="TB_ORDER_INFO" domainObjectName="OrderInfo">
+	    	<!-- <generatedKey column="ID" sqlStatement="MySql" identity="true"/> -->
+	    </table>
+	    <table schema="TEST_DB" tableName="TB_ORDER_APPLY" domainObjectName="OrderApply">
+	    	<generatedKey column="ID" sqlStatement="MySql" identity="true"/>
+	    </table>
+    </context>
+
+</generatorConfiguration>

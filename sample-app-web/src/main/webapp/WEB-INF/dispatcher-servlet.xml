@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.alan.sample.controller,com.alan.sample.expose" />
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:/apps/dongnao/config/sample/config.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- <mvc:interceptors>
+		<mvc:interceptor >
+			<mvc:mapping path="/**"/>
+			<bean class="com.alan.spring.interceptor.TestInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor >
+			<mvc:mapping path="/**"/>
+			<bean class="com.alan.spring.interceptor.TestInterceptor2"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+	
+	<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	    <property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+	</bean>
+	
+	<bean class ="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+	    <property name="messageConverters">
+		  <list>
+		   <ref bean="fastJsonHttpMessageConverter" /><!-- json转换器 -->
+		   <!-- <ref bean="responseLogConverter" /> -->
+		  </list>
+		 </property>
+	</bean>
+	<bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter" />
+	
+	<!-- <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	  <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+	  <property name="prefix" value="/WEB-INF/jsp/"/>
+	  <property name="suffix" value=".jsp"/>
+	  <property name="order" value="10"/>
+	</bean> -->
+	
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+          <property name="cache" value="false" />
+          <property name="prefix" value="" />
+          <property name="suffix" value=".vm" />
+          <property name="contentType" value="text/html;charset=UTF-8" />
+          <property name="exposeSpringMacroHelpers" value="true" />
+          <property name="exposeRequestAttributes" value="true" />
+          <property name="exposeSessionAttributes" value="true" />
+          <property name="requestContextAttribute" value="rc"/>
+          <property name="layoutUrl" value="layout/blank.vm"/>
+   </bean>
+   
+   <!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+          <property name="cache" value="false" />是否缓存模板
+          <property name="prefix" value="" />
+          <property name="suffix" value=".vm" />
+          <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml" />toolbox配置文件路径
+          <property name="dateToolAttribute" value="dateTool" />日期函数名称
+          <property name="numberToolAttribute" value="numberTool" />数字函数名称
+          <property name="contentType" value="text/html;charset=UTF-8" />
+          <property name="exposeSpringMacroHelpers" value="true" />是否使用spring对宏定义的支持         
+          <property name="exposeRequestAttributes" value="true" />是否开放request属性
+          <property name="exposeSessionAttributes" value="true" />是否开放session属性
+          <property name="requestContextAttribute" value="rc"/>request属性引用名称
+          <property name="layoutUrl" value="layout/blank.vm"/>指定layout文件
+   </bean> -->
+	 
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="view" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="contentType">text/html;charset=UTF-8</prop>
+				<prop key="velocimacro.library">macro/macros.vm</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

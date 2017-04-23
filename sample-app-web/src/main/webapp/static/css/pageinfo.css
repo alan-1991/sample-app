@@ -1,0 +1,24 @@
+/*
+this is for page info css style
+*/
+
+table.pageinfo{
+	width:100%;
+}
+
+table.pageinfo tr td {
+	font-size:9pt;
+}
+
+table.pageinfo tbody tr td{
+	font-size:9pt;
+}
+table.pageinfo .pageLink{
+	margin-left:10px;
+	height:20px;
+}
+table.pageinfo .pageSIBLING{
+	margin-left:10px;
+	height:18px;
+	line-heigth:18px;
+}

@@ -1,0 +1,11 @@
+
+<script type="text/javascript" src="#getJsPath('jquery/jquery-1.6.1.min.js')"></script>
+<script type="text/javascript" src="#getJsPath('jquery/jquery.json.js')"></script>
+<script type="text/javascript" src="#getJsPath('pageinfo.js')"></script>
+
+<link type="text/css" rel="stylesheet" href="#getCssPath('css.css')"/>
+<link type="text/css" rel="stylesheet" href="#getCssPath('pageinfo.css')"/>
+
+<script>
+	var basePath = "$rc.contextPath";
+</script>

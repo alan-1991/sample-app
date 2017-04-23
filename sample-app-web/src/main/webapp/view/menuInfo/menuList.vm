@@ -1,0 +1,48 @@
+##set($layout = "/layout/empty.vm")
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery("#add").click(function(){
+		window.location = "$rc.contextPath/editPre.htm";
+	});
+});
+</script>
+<form action="$rc.contextPath/showMenuList.htm" method="post" name="myFrom">
+
+<table class="search">
+	<caption>menu查询---${menuTitle}</caption>
+	<tr>
+		<th>名称</th>
+		<td><input type="text" name="name" value="$!name"></td>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="4" class="submit">
+		<input type="submit" class="searchbutton" value="查询">
+		<input type="button" id="add" class="add" value="新增">
+		</td>
+	</tr>
+</table>
+
+<div class="message">$!{message}</div>
+<table class="list">
+	<tr>
+		<th>id</th>
+		<th>name</th>
+		<th>备注</th>
+		<th>操作</th>
+	</tr>
+	
+	#foreach($menu in $page.records)
+	<tr>
+		<td>${menu.id}</td>
+		<td>${menu.name}</td>
+		<td>${menu.memo}</td>
+		<td><a href="$rc.contextPath/editPre.htm?id=${menu.id}">修改</a>
+		<a href="$rc.contextPath/delete.htm?id=${menu.id}">删除</a>
+		</td>
+	</tr>
+	#end
+</table>
+#parse("/control/page.vm")
+</form>

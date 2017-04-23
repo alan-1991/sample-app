@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMapConfig PUBLIC
+    "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+  <settings useStatementNamespaces="true" enhancementEnabled="true" lazyLoadingEnabled="true"/>
+  <typeAlias alias="String" type="java.lang.String" />
+  <typeAlias alias="Long" type="java.lang.Long" />
+  <typeAlias alias="Integer" type="java.lang.Integer" />
+	
+	<sqlMap resource="ibatis/sampleB/TB_GRADE_INFO_SqlMap.xml"/>
+	<sqlMap resource="ibatis/sampleB/TB_TEST_CHIND_SqlMap.xml"/>
+	<sqlMap resource="ibatis/sampleB/TB_MENU_INFO_SqlMap.xml"/>
+	
+	<sqlMap resource="ibatis/sampleB/EXT_GRADE_INFO_SqlMap.xml"/>
+
+</sqlMapConfig>

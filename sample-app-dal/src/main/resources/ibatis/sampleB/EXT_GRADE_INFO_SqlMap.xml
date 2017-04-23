@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="TB_GRADE_INFO" >
+	<select id="findExtGradeInfo" resultMap="TB_GRADE_INFO.BaseResultMap">
+	select 
+	<include refid="TB_GRADE_INFO.Base_Column_List"/>
+	from TB_GRADE_INFO
+	<dynamic prepend="WHERE">
+		<isNotEmpty prepend="AND" property="studentId">
+		STUDENT_ID = #studentId:INTEGER#
+		</isNotEmpty>
+	</dynamic>
+	</select>
+</sqlMap>

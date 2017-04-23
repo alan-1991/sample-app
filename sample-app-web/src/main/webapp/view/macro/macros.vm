@@ -1,0 +1,7 @@
+#macro(getRequestBase)
+#if($rc.contextPath != "")$rc.contextPath#end
+#end
+
+#macro(getJsPath $jsPath)#getRequestBase()/static/js/$jsPath#end
+#macro(getCssPath $cssPath)#getRequestBase()/static/css/$cssPath#end
+#macro(getImgPath $imgPath)#getRequestBase()/static/img/$imgPath#end

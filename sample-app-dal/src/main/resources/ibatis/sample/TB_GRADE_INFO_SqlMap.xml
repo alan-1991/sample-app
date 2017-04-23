@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="TB_GRADE_INFO" >
+  <resultMap id="BaseResultMap" class="com.alan.sample.model.GradeInfo" >
+    <result column="ID" property="id" jdbcType="INTEGER" />
+    <result column="STUDENT_ID" property="studentId" jdbcType="INTEGER" />
+    <result column="SUBJECT_ID" property="subjectId" jdbcType="INTEGER" />
+    <result column="GRADE" property="grade" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, STUDENT_ID, SUBJECT_ID, GRADE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.alan.sample.model.GradeInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="TB_GRADE_INFO.Base_Column_List" />
+    from TB_GRADE_INFO
+    <isParameterPresent >
+      <include refid="TB_GRADE_INFO.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.alan.sample.model.GradeInfo" >
+    select 
+    <include refid="TB_GRADE_INFO.Base_Column_List" />
+    from TB_GRADE_INFO
+    where ID = #id:INTEGER#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.alan.sample.model.GradeInfo" >
+    delete from TB_GRADE_INFO
+    where ID = #id:INTEGER#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.alan.sample.model.GradeInfoExample" >
+    delete from TB_GRADE_INFO
+    <include refid="TB_GRADE_INFO.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.alan.sample.model.GradeInfo" >
+    insert into TB_GRADE_INFO (STUDENT_ID, SUBJECT_ID, GRADE)
+    values (#studentId:INTEGER#, #subjectId:INTEGER#, #grade:DECIMAL#)
+    <selectKey resultClass="java.lang.Integer" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterClass="com.alan.sample.model.GradeInfo" >
+    insert into TB_GRADE_INFO
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="studentId" >
+        STUDENT_ID
+      </isNotNull>
+      <isNotNull prepend="," property="subjectId" >
+        SUBJECT_ID
+      </isNotNull>
+      <isNotNull prepend="," property="grade" >
+        GRADE
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="studentId" >
+        #studentId:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="subjectId" >
+        #subjectId:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="grade" >
+        #grade:DECIMAL#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Integer" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="countByExample" parameterClass="com.alan.sample.model.GradeInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from TB_GRADE_INFO
+    <include refid="TB_GRADE_INFO.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update TB_GRADE_INFO
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        ID = #record.id:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.studentId" >
+        STUDENT_ID = #record.studentId:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.subjectId" >
+        SUBJECT_ID = #record.subjectId:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.grade" >
+        GRADE = #record.grade:DECIMAL#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="TB_GRADE_INFO.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update TB_GRADE_INFO
+    set ID = #record.id:INTEGER#,
+      STUDENT_ID = #record.studentId:INTEGER#,
+      SUBJECT_ID = #record.subjectId:INTEGER#,
+      GRADE = #record.grade:DECIMAL#
+    <isParameterPresent >
+      <include refid="TB_GRADE_INFO.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.alan.sample.model.GradeInfo" >
+    update TB_GRADE_INFO
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="studentId" >
+        STUDENT_ID = #studentId:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="subjectId" >
+        SUBJECT_ID = #subjectId:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="grade" >
+        GRADE = #grade:DECIMAL#
+      </isNotNull>
+    </dynamic>
+    where ID = #id:INTEGER#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.alan.sample.model.GradeInfo" >
+    update TB_GRADE_INFO
+    set STUDENT_ID = #studentId:INTEGER#,
+      SUBJECT_ID = #subjectId:INTEGER#,
+      GRADE = #grade:DECIMAL#
+    where ID = #id:INTEGER#
+  </update>
+</sqlMap>

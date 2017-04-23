@@ -1,0 +1,25 @@
+#if($page)
+<table class="pageinfo" width="100%"  border="0" cellspacing="1">
+	<tr>
+		<td align="left">总共${page.pageNo}/${page.total}</td>
+		<td align="right">
+			#if(${page.pageNo}>1)
+				<a href="#" class="pageLink" pageNumber="1">第一页</a>
+				<a href="#" class="pageLink" pageNumber="${page.prePage}">前一页</a>
+			#else
+				第一页
+			#end
+			
+			#if(${page.pageNo}<${page.total})
+				<a href="#" class="pageLink" pageNumber="${page.nextPage}">后一页</a>
+				<a href="#" class="pageLink" pageNumber="${page.total}">最后</a>
+			#else
+				最后
+			#end
+			
+			<input type="text" id="_page" class="pageSIBLING" name="pageNo" size="2" value="${page.pageNo}"/>
+			<input type="button" class="pageLink" value="GO" onclick="jQuery(this).attr('pageNumber',jQuery(this).siblings('.pageSIBLING').val());"/>
+		</td>
+	</tr>
+</table>
+#end

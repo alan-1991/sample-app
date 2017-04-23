@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="TB_MENU_INFO" >
+  <resultMap id="BaseResultMap" class="com.alan.sample.model.MenuInfo" >
+    <result column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, NAME, MEMO
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.alan.sample.model.MenuInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="TB_MENU_INFO.Base_Column_List" />
+    from TB_MENU_INFO
+    <isParameterPresent >
+      <include refid="TB_MENU_INFO.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.alan.sample.model.MenuInfo" >
+    select 
+    <include refid="TB_MENU_INFO.Base_Column_List" />
+    from TB_MENU_INFO
+    where ID = #id:INTEGER#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.alan.sample.model.MenuInfo" >
+    delete from TB_MENU_INFO
+    where ID = #id:INTEGER#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.alan.sample.model.MenuInfoExample" >
+    delete from TB_MENU_INFO
+    <include refid="TB_MENU_INFO.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.alan.sample.model.MenuInfo" >
+    insert into TB_MENU_INFO (NAME, MEMO)
+    values (#name:VARCHAR#, #memo:VARCHAR#)
+    <selectKey resultClass="java.lang.Integer" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterClass="com.alan.sample.model.MenuInfo" >
+    insert into TB_MENU_INFO
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="name" >
+        NAME
+      </isNotNull>
+      <isNotNull prepend="," property="memo" >
+        MEMO
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="name" >
+        #name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memo" >
+        #memo:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+    <selectKey resultClass="java.lang.Integer" keyProperty="id" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="countByExample" parameterClass="com.alan.sample.model.MenuInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from TB_MENU_INFO
+    <include refid="TB_MENU_INFO.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update TB_MENU_INFO
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        ID = #record.id:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.name" >
+        NAME = #record.name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memo" >
+        MEMO = #record.memo:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="TB_MENU_INFO.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update TB_MENU_INFO
+    set ID = #record.id:INTEGER#,
+      NAME = #record.name:VARCHAR#,
+      MEMO = #record.memo:VARCHAR#
+    <isParameterPresent >
+      <include refid="TB_MENU_INFO.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.alan.sample.model.MenuInfo" >
+    update TB_MENU_INFO
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="name" >
+        NAME = #name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memo" >
+        MEMO = #memo:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where ID = #id:INTEGER#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.alan.sample.model.MenuInfo" >
+    update TB_MENU_INFO
+    set NAME = #name:VARCHAR#,
+      MEMO = #memo:VARCHAR#
+    where ID = #id:INTEGER#
+  </update>
+</sqlMap>

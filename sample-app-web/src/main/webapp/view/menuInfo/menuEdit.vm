@@ -1,0 +1,19 @@
+##set($layout = "/layout/empty.vm")
+
+<form action="$rc.contextPath/edit.htm" method="post" name="myFrom">
+<div class="message">$!{message}</div>
+<input type="hidden" name="id" value="$!menuInfo.id">
+<table class="search">
+	<caption>编辑</caption>
+	<tr>
+		<th>name</th>
+		<td><input type="text" name="name" value="$!menuInfo.name" autocomplete="off"></td>
+		<th>memo</th>
+		<td><input type="text" name="memo" value="$!menuInfo.memo" autocomplete="off"></td>
+	</tr>
+	<tr>
+		<td colspan="4">
+		<input type="submit" value="保存">
+		</td>
+	</tr>
+</form>
