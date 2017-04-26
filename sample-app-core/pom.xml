@@ -8,16 +8,16 @@
   <artifactId>sample-app-core</artifactId>
   
   <dependencies>
-  	<dependency>
+  	<!-- <dependency>
 		  <groupId>com.alan.subject</groupId>
     	<artifactId>first-app-api</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
   	
-  	<dependency>
+  <!-- 	<dependency>
 			<groupId>com.9istock.base</groupId>
 			<artifactId>http-service</artifactId>
-		</dependency>
+		</dependency> -->
 		
   	<dependency>
 		  <groupId>com.alan.sample</groupId>

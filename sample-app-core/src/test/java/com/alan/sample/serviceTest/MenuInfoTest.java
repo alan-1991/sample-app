@@ -27,11 +27,6 @@ public class MenuInfoTest {
 	private MenuInfoService menuInfoService;
 	
 	@Test
-	public void test2(){
-		
-	}
-	
-	@Test
 	public void test1() throws Exception{
 		logger.info("===========================================");
 		

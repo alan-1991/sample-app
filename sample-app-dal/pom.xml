@@ -13,12 +13,12 @@
 		  <artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		
-        <dependency>
+         <dependency>
             <groupId>com.9istock.base</groupId>
             <artifactId>mybatis-generator-tools</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>test</scope>
-        </dependency>
+        </dependency> 
         
         <dependency>
 			<groupId>com.9istock.base</groupId>

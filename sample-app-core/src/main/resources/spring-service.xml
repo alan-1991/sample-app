@@ -13,9 +13,9 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.alan.sample.service" />
 	
-	<bean name="bankService" class="com.istock.base.httpService.client.HttpProxyFactoryCglib">
+	<!-- <bean name="bankService" class="com.istock.base.httpService.client.HttpProxyFactoryCglib">
     	<property name="targetClass" value="com.alan.bank.BankService"></property>
     	<property name="endPoint" value="http://localhost:18080/firstApp"></property>
     	<property name="timeOut" value="35000"></property>
-    </bean>
+    </bean> -->
 </beans>

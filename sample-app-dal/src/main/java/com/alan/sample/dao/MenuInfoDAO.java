@@ -1,8 +1,8 @@
 package com.alan.sample.dao;
 
-import com.istock.base.ibatis.model.Page;
 import com.alan.sample.model.MenuInfo;
 import com.alan.sample.model.MenuInfoExample;
+import com.istock.base.ibatis.model.Page;
 import java.util.List;
 
 public interface MenuInfoDAO {

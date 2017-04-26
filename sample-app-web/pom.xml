@@ -22,11 +22,11 @@
 			<artifactId>sample-app-dal</artifactId>
 		</dependency>
 		
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.9istock.base</groupId>
 			<artifactId>http-service</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 		
 		<dependency>
 			<groupId>org.springframework</groupId>

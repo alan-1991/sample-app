@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
-<sqlMap namespace="TB_MENU_INFO" >
+<sqlMap namespace="tb_menu_info" >
   <resultMap id="BaseResultMap" class="com.alan.sample.model.MenuInfo" >
     <result column="ID" property="id" jdbcType="INTEGER" />
     <result column="NAME" property="name" jdbcType="VARCHAR" />
@@ -41,10 +41,10 @@
         distinct
       </isEqual>
     </isParameterPresent>
-    <include refid="TB_MENU_INFO.Base_Column_List" />
-    from TB_MENU_INFO
+    <include refid="tb_menu_info.Base_Column_List" />
+    from tb_menu_info
     <isParameterPresent >
-      <include refid="TB_MENU_INFO.Example_Where_Clause" />
+      <include refid="tb_menu_info.Example_Where_Clause" />
       <isNotNull property="orderByClause" >
         order by $orderByClause$
       </isNotNull>
@@ -52,27 +52,27 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.alan.sample.model.MenuInfo" >
     select 
-    <include refid="TB_MENU_INFO.Base_Column_List" />
-    from TB_MENU_INFO
+    <include refid="tb_menu_info.Base_Column_List" />
+    from tb_menu_info
     where ID = #id:INTEGER#
   </select>
   <delete id="deleteByPrimaryKey" parameterClass="com.alan.sample.model.MenuInfo" >
-    delete from TB_MENU_INFO
+    delete from tb_menu_info
     where ID = #id:INTEGER#
   </delete>
   <delete id="deleteByExample" parameterClass="com.alan.sample.model.MenuInfoExample" >
-    delete from TB_MENU_INFO
-    <include refid="TB_MENU_INFO.Example_Where_Clause" />
+    delete from tb_menu_info
+    <include refid="tb_menu_info.Example_Where_Clause" />
   </delete>
   <insert id="insert" parameterClass="com.alan.sample.model.MenuInfo" >
-    insert into TB_MENU_INFO (NAME, MEMO)
+    insert into tb_menu_info (NAME, MEMO)
     values (#name:VARCHAR#, #memo:VARCHAR#)
     <selectKey resultClass="java.lang.Integer" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
   <insert id="insertSelective" parameterClass="com.alan.sample.model.MenuInfo" >
-    insert into TB_MENU_INFO
+    insert into tb_menu_info
     <dynamic prepend="(" >
       <isNotNull prepend="," property="name" >
         NAME
@@ -97,11 +97,11 @@
     </selectKey>
   </insert>
   <select id="countByExample" parameterClass="com.alan.sample.model.MenuInfoExample" resultClass="java.lang.Integer" >
-    select count(*) from TB_MENU_INFO
-    <include refid="TB_MENU_INFO.Example_Where_Clause" />
+    select count(*) from tb_menu_info
+    <include refid="tb_menu_info.Example_Where_Clause" />
   </select>
   <update id="updateByExampleSelective" >
-    update TB_MENU_INFO
+    update tb_menu_info
     <dynamic prepend="set" >
       <isNotNull prepend="," property="record.id" >
         ID = #record.id:INTEGER#
@@ -114,20 +114,20 @@
       </isNotNull>
     </dynamic>
     <isParameterPresent >
-      <include refid="TB_MENU_INFO.Example_Where_Clause" />
+      <include refid="tb_menu_info.Example_Where_Clause" />
     </isParameterPresent>
   </update>
   <update id="updateByExample" >
-    update TB_MENU_INFO
+    update tb_menu_info
     set ID = #record.id:INTEGER#,
       NAME = #record.name:VARCHAR#,
       MEMO = #record.memo:VARCHAR#
     <isParameterPresent >
-      <include refid="TB_MENU_INFO.Example_Where_Clause" />
+      <include refid="tb_menu_info.Example_Where_Clause" />
     </isParameterPresent>
   </update>
   <update id="updateByPrimaryKeySelective" parameterClass="com.alan.sample.model.MenuInfo" >
-    update TB_MENU_INFO
+    update tb_menu_info
     <dynamic prepend="set" >
       <isNotNull prepend="," property="name" >
         NAME = #name:VARCHAR#
@@ -139,7 +139,7 @@
     where ID = #id:INTEGER#
   </update>
   <update id="updateByPrimaryKey" parameterClass="com.alan.sample.model.MenuInfo" >
-    update TB_MENU_INFO
+    update tb_menu_info
     set NAME = #name:VARCHAR#,
       MEMO = #memo:VARCHAR#
     where ID = #id:INTEGER#
