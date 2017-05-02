@@ -12,6 +12,8 @@
 		<spring.version>3.1.4.RELEASE</spring.version>
 		<velocity.version>1.5</velocity.version>
 		<velocity.tools.version>1.4</velocity.tools.version>
+		
+		<cxf.version>3.0.5</cxf.version>
 </properties>
 
 
@@ -54,6 +56,17 @@
 			<artifactId>sample-app-dal</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-frontend-jaxws</artifactId>
+	        <version>${cxf.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-transports-http</artifactId>
+	        <version>${cxf.version}</version>
+	    </dependency>
   		
   		<dependency>
 			<groupId>com.9istock.base</groupId>
