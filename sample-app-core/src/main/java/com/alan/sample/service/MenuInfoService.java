@@ -21,8 +21,15 @@ public class MenuInfoService {
 	@Autowired
 	private MenuInfoDAO menuInfoDao;
 	
+	@Autowired
+	private ExtMenuInfoDAO menuInfoDao;
+	
 	public MenuInfo findMenuInfoById(Integer id){
 		return menuInfoDao.selectByPrimaryKey(id);
+	}
+	
+	public List<Map<String,Object>> groupByTest(String name,Page page){
+		return 
 	}
 	
 	public List<MenuInfo> findByName(String name , Page page){
